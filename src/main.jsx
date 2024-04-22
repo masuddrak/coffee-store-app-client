@@ -10,6 +10,7 @@ import Home from './Pages/Home';
 import Contact from './Pages/Contact';
 import About from './Pages/About';
 import AddCoffee from './Pages/AddCoffee';
+import EspressoEmporium from './Pages/EspressoEmporium';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>
+      },
+      {
+        path:"/espressoEmporium",
+        element:<EspressoEmporium></EspressoEmporium>,
+        loader:()=>fetch("http://localhost:5000/coffees")
       },
       {
         path:"/addCoffee",

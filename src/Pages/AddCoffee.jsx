@@ -1,17 +1,28 @@
 
 const AddCoffee = () => {
-    const handelAddCoffee=e=>{
+    const handelAddCoffee = e => {
         e.preventDefault()
-        const form=e.target
-        const name=form.name.value
-        const supplier=form.supplier.value
-        const category=form.category.value
-        const photo=form.photo.value
-        const chef=form.chef.value
-        const taste=form.taste.value
-        const details=form.details.value
-        const coffeeInfo={name,supplier,category,photo,chef,taste,details}
-    
+        const form = e.target
+        const name = form.name.value
+        const supplier = form.supplier.value
+        const category = form.category.value
+        const photo = form.photo.value
+        const chef = form.chef.value
+        const taste = form.taste.value
+        const details = form.details.value
+        const coffeeInfo = { name, supplier, category, photo, chef, taste, details }
+        fetch("http://localhost:5000/coffees",{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(coffeeInfo)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            
+        })
         console.log(coffeeInfo)
     }
     return (
