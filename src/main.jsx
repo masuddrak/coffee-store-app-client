@@ -11,6 +11,8 @@ import Contact from './Pages/Contact';
 import About from './Pages/About';
 import AddCoffee from './Pages/AddCoffee';
 import EspressoEmporium from './Pages/EspressoEmporium';
+import CoffeeDetails from './components/CoffeeDetails';
+import UpdateCoffee from './components/UpdateCoffee';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,16 @@ const router = createBrowserRouter([
       {
         path:"/addCoffee",
         element:<AddCoffee></AddCoffee>
+      },
+      {
+        path:"/coffees/:id",
+        element:<CoffeeDetails></CoffeeDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/coffees/${params.id}`)
+      },
+      {
+        path:"/updateCoffees/:id",
+        element:<UpdateCoffee></UpdateCoffee>,
+        loader:({params})=>fetch(`http://localhost:5000/coffees/${params.id}`)
       },
       {
         path:"/about",

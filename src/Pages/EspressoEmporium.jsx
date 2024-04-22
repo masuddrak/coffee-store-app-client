@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import emBanner from "../assets/empress/Rectangle 2.png"
 import SingleCoffee from "../components/SingleCoffee";
+import { useState } from "react";
 const EspressoEmporium = () => {
     const loaderData=useLoaderData()
+    const [coffees,setCoffees]=useState(loaderData)
     console.log(loaderData)
     return (
         <div>
-            Espresso Emporium
             <div style={{
                 background: `url(${emBanner})`,
                 // backgroundSize:"cover",
@@ -28,7 +29,7 @@ const EspressoEmporium = () => {
             {/* all coffee */}
             <div className="grid grid-cols-2 gap-10 mt-10">
                 {
-                    loaderData.map(coffee=><SingleCoffee key={coffee._id} coffee={coffee}></SingleCoffee>)
+                    coffees.map(coffee=><SingleCoffee key={coffee._id} coffees={coffees} setCoffees={setCoffees} coffee={coffee}></SingleCoffee>)
                 }
             </div>
         </div>
