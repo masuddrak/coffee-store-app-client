@@ -5,7 +5,6 @@ import { useState } from "react";
 const EspressoEmporium = () => {
     const loaderData=useLoaderData()
     const [coffees,setCoffees]=useState(loaderData)
-    console.log(loaderData)
     return (
         <div>
             <div style={{

@@ -8,6 +8,7 @@ const Header = () => {
     <li><NavLink to="/addCoffee">Add Coffee</NavLink></li>
     <li><NavLink to="/about">About</NavLink></li>
     <li><NavLink to="/contact">Contact</NavLink></li>
+    <li><NavLink to="/users">Users</NavLink></li>
     </>
     return (
         <div>
@@ -29,7 +30,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <NavLink to="/login" className="btn">Login</NavLink>
                 </div>
             </div>
         </div>
